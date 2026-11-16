@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sillage, covoiturage</title>
+<meta name="description" content="Sillage met en relation des conducteurs qui ont des places libres et des voyageurs qui font le même chemin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F1EFE8;color:#11160F;font-family:'DM Sans',system-ui,sans-serif}
+a{color:#11160F;text-decoration:none}
+a:hover{color:#C2321A}
+::selection{background:#C2321A;color:#F1EFE8}
+input,button{font-family:inherit}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+<div style="background:#F1EFE8;color:#11160F;overflow:hidden">
+
+<!-- Navigation -->
+<header style="max-width:1360px;margin:0 auto;padding:28px clamp(20px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
+<a href="#haut" style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;letter-spacing:-0.01em;min-height:44px;display:flex;align-items:center">Sillage<span style="color:#C2321A">.</span></a>
+<nav style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 28px;font-size:15px">
+<a href="#comment" style="min-height:44px;display:flex;align-items:center">Comment ça marche</a>
+<a href="#profils" style="min-height:44px;display:flex;align-items:center">Conducteurs &amp; passagers</a>
+<a href="#confiance" style="min-height:44px;display:flex;align-items:center">Confiance</a>
+<a href="#trajets" style="min-height:44px;display:flex;align-items:center;padding:0 22px;border:1.5px solid #11160F;border-radius:999px;font-weight:500">Trouver un trajet</a>
+</nav>
+</header>
+
+<!-- Hero -->
+<section id="haut" style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(24px,5vw,72px) clamp(20px,4vw,64px) clamp(56px,8vw,120px)">
+<svg aria-hidden="true" viewBox="0 0 600 320" style="position:absolute;right:2%;bottom:6%;width:min(62%,780px);height:auto;pointer-events:none;opacity:0.9" fill="none">
+<path d="M16 270 C 110 40, 210 330, 318 170 S 520 70, 584 36" stroke="#11160F" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 9"></path>
+<circle cx="16" cy="270" r="7" fill="#11160F"></circle>
+<circle cx="584" cy="36" r="11" fill="#C2321A"></circle>
+</svg>
+
+<p style="position:relative;margin:0 0 28px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#4A4F45;max-width:34ch">Covoiturage au quotidien · [VOTRE VILLE OU RÉGION]</p>
+
+<h1 style="position:relative;margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(54px,11.5vw,176px);line-height:0.9;letter-spacing:-0.035em">
+<span style="display:block">Les routes</span>
+<span style="display:block;margin-left:clamp(24px,12vw,200px);font-style:italic;color:#C2321A">sont plus belles</span>
+<span style="display:block;margin-left:clamp(0px,4vw,64px)">à plusieurs.</span>
+</h1>
+
+<div style="position:relative;margin:clamp(40px,6vw,88px) 0 0 clamp(0px,18vw,300px);max-width:520px">
+<p style="margin:0 0 28px;font-size:19px;line-height:1.55;color:#2B3128">Sillage met en relation des conducteurs qui ont des places libres et des voyageurs qui font le même chemin. Moins de voitures vides, des trajets moins chers, des rencontres qu'on n'attendait pas.</p>
+
+<div id="trajets" style="background:#F1EFE8;border:1.5px solid #11160F;padding:20px;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;box-shadow:8px 8px 0 #11160F">
+<div style="flex:1 1 150px;display:flex;flex-direction:column;gap:6px">
+<label for="depart" style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#4A4F45">Départ</label>
+<input id="depart" type="text" placeholder="[Ville de départ]" style="height:48px;border:0;border-bottom:1.5px solid #11160F;background:transparent;font-size:16px;padding:0 2px;color:#11160F">
+</div>
+<div style="flex:1 1 150px;display:flex;flex-direction:column;gap:6px">
+<label for="arrivee" style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#4A4F45">Arrivée</label>
+<input id="arrivee" type="text" placeholder="[Ville d'arrivée]" style="height:48px;border:0;border-bottom:1.5px solid #11160F;background:transparent;font-size:16px;padding:0 2px;color:#11160F">
+</div>
+<div style="flex:1 1 130px;display:flex;flex-direction:column;gap:6px">
+<label for="date" style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#4A4F45">Date</label>
+<input id="date" type="text" placeholder="jj / mm" style="height:48px;border:0;border-bottom:1.5px solid #11160F;background:transparent;font-size:16px;padding:0 2px;color:#11160F">
+</div>
+<button type="button" style="flex:1 1 100%;height:52px;border:0;background:#11160F;color:#F1EFE8;font-size:16px;font-weight:500;cursor:pointer;letter-spacing:0.02em">Chercher un trajet</button>
+</div>
+</div>
+</section>
+
+<!-- Bandeau de trajets -->
+<section aria-label="Exemples de trajets" style="border-top:1.5px solid #11160F;border-bottom:1.5px solid #11160F;background:#11160F;color:#F1EFE8">
+<div style="max-width:1360px;margin:0 auto;padding:18px clamp(20px,4vw,64px);display:flex;flex-wrap:wrap;gap:10px 44px;font-family:'Instrument Serif',serif;font-size:clamp(22px,2.4vw,32px);font-style:italic">
+<span>[VILLE A] → [VILLE B]</span>
+<span style="color:#D9D4C3">[VILLE C] → [VILLE D]</span>
+<span>[VILLE E] → [VILLE F]</span>
+<span style="color:#D9D4C3">[PRIX] la place</span>
+</div>
+</section>
+
+<!-- Comment ça marche -->
+<section id="comment" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(20px,4vw,64px) clamp(56px,8vw,110px);display:flex;flex-wrap:wrap;gap:56px clamp(32px,6vw,96px)">
+<div style="flex:1 1 280px;max-width:380px">
+<p style="margin:0 0 20px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#4A4F45">Le principe</p>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:0.98;letter-spacing:-0.02em">Trois gestes, <span style="font-style:italic;color:#C2321A">puis la route.</span></h2>
+</div>
+<div style="flex:2 1 520px;min-width:0">
+<div style="display:flex;gap:clamp(16px,3vw,40px);align-items:flex-start;padding-bottom:40px;border-bottom:1px solid #11160F">
+<span aria-hidden="true" style="font-family:'Instrument Serif',serif;font-size:clamp(72px,9vw,132px);line-height:0.8;font-style:italic">01</span>
+<div style="padding-top:6px;max-width:44ch">
+<h3 style="margin:0 0 10px;font-size:22px;font-weight:700">Indiquez votre trajet</h3>
+<p style="margin:0;font-size:17px;line-height:1.6;color:#2B3128">Départ, arrivée, date. Conducteur, vous proposez vos places libres. Passager, vous voyez ce qui roule déjà dans votre direction.</p>
+</div>
+</div>
+<div style="display:flex;gap:clamp(16px,3vw,40px);align-items:flex-start;padding:40px 0;border-bottom:1px solid #11160F;margin-left:clamp(0px,8vw,120px)">
+<span aria-hidden="true" style="font-family:'Instrument Serif',serif;font-size:clamp(72px,9vw,132px);line-height:0.8;font-style:italic">02</span>
+<div style="padding-top:6px;max-width:44ch">
+<h3 style="margin:0 0 10px;font-size:22px;font-weight:700">Choisissez la bonne personne</h3>
+<p style="margin:0;font-size:17px;line-height:1.6;color:#2B3128">Profils vérifiés, avis des précédents voyageurs, préférences de trajet. Vous décidez avec qui vous partagez la route.</p>
+</div>
+</div>
+<div style="display:flex;gap:clamp(16px,3vw,40px);align-items:flex-start;padding-top:40px;margin-left:clamp(0px,16vw,240px)">
+<span aria-hidden="true" style="font-family:'Instrument Serif',serif;font-size:clamp(72px,9vw,132px);line-height:0.8;font-style:italic">03</span>
+<div style="padding-top:6px;max-width:44ch">
+<h3 style="margin:0 0 10px;font-size:22px;font-weight:700">Partez, partagez les frais</h3>
+<p style="margin:0;font-size:17px;line-height:1.6;color:#2B3128">Le prix de la place est fixé à l'avance et réglé via l'application. Pas de monnaie à chercher, pas de surprise à l'arrivée.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Conducteurs & passagers -->
+<section id="profils" style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,64px) clamp(72px,10vw,150px);display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+<article style="flex:5 1 380px;background:#E4E0D2;padding:clamp(28px,4vw,56px)">
+<p style="margin:0 0 18px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#4A4F45">Passagers</p>
+<h2 style="margin:0 0 22px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,56px);line-height:1;letter-spacing:-0.015em">Voyagez moins cher, <span style="font-style:italic">sans dépendre d'un horaire.</span></h2>
+<p style="margin:0 0 28px;font-size:17px;line-height:1.6;color:#2B3128;max-width:46ch">Des départs aux heures où les transports ne passent pas, et des places au prix d'un partage de frais.</p>
+<a href="#trajets" style="display:inline-flex;align-items:center;min-height:48px;padding:0 26px;background:#11160F;color:#F1EFE8;font-weight:500">Réserver une place</a>
+</article>
+<article style="flex:7 1 460px;background:#11160F;color:#F1EFE8;padding:clamp(28px,4vw,56px);margin-top:clamp(0px,6vw,88px)">
+<p style="margin:0 0 18px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#B9B7A8">Conducteurs</p>
+<h2 style="margin:0 0 22px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.6vw,68px);line-height:1;letter-spacing:-0.015em">Vous faites déjà le trajet. <span style="font-style:italic;color:#F2A48F">Autant qu'il serve.</span></h2>
+<p style="margin:0 0 28px;font-size:17px;line-height:1.6;color:#D9D4C3;max-width:52ch">Publiez vos places en quelques instants, fixez votre prix, acceptez les passagers qui vous conviennent. Les frais d'essence et de péage se partagent.</p>
+<a href="#trajets" style="display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border:1.5px solid #F1EFE8;color:#F1EFE8;font-weight:500">Proposer un trajet</a>
+</article>
+</section>
+
+<!-- Confiance -->
+<section id="confiance" style="border-top:1.5px solid #11160F">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,130px) clamp(20px,4vw,64px);display:flex;flex-wrap:wrap;gap:48px clamp(32px,6vw,96px)">
+<div style="flex:1 1 300px;max-width:440px">
+<p style="margin:0 0 20px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#4A4F45">Confiance</p>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:0.98;letter-spacing:-0.02em">On monte plus <span style="font-style:italic;color:#C2321A">volontiers</span> avec quelqu'un qu'on connaît un peu.</h2>
+</div>
+<div style="flex:2 1 520px;min-width:0">
+<div style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0;border-top:1px solid #11160F">
+<h3 style="flex:0 0 220px;margin:0;font-size:20px;font-weight:700">Profils vérifiés</h3>
+<p style="flex:1 1 280px;margin:0;font-size:17px;line-height:1.6;color:#2B3128">[DÉCRIVEZ VOS VÉRIFICATIONS : pièce d'identité, téléphone, e-mail…]</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0 26px clamp(0px,5vw,72px);border-top:1px solid #11160F">
+<h3 style="flex:0 0 220px;margin:0;font-size:20px;font-weight:700">Avis après chaque trajet</h3>
+<p style="flex:1 1 280px;margin:0;font-size:17px;line-height:1.6;color:#2B3128">Conducteurs et passagers se notent mutuellement. Les avis restent visibles sur les profils.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0;border-top:1px solid #11160F">
+<h3 style="flex:0 0 220px;margin:0;font-size:20px;font-weight:700">Paiement sécurisé</h3>
+<p style="flex:1 1 280px;margin:0;font-size:17px;line-height:1.6;color:#2B3128">[DÉCRIVEZ VOTRE MODE DE PAIEMENT : en ligne, en espèces, mixte…]</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0 26px clamp(0px,10vw,144px);border-top:1px solid #11160F;border-bottom:1px solid #11160F">
+<h3 style="flex:0 0 220px;margin:0;font-size:20px;font-weight:700">Signalement simple</h3>
+<p style="flex:1 1 280px;margin:0;font-size:17px;line-height:1.6;color:#2B3128">Un comportement qui pose problème ? Un signalement suffit, et notre équipe l'examine.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Appel final -->
+<section style="background:#C2321A;color:#F1EFE8">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,140px) clamp(20px,4vw,64px);display:flex;flex-direction:column;align-items:flex-start;gap:40px">
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,9vw,140px);line-height:0.92;letter-spacing:-0.03em;max-width:12ch">Votre prochain trajet <span style="font-style:italic">commence ici.</span></h2>
+<a href="#trajets" style="display:inline-flex;align-items:center;min-height:56px;padding:0 34px;background:#F1EFE8;color:#11160F;font-size:17px;font-weight:700;margin-left:clamp(0px,12vw,200px)">Commencer</a>
+</div>
+</section>
+
+<!-- Pied de page -->
+<footer style="max-width:1360px;margin:0 auto;padding:36px clamp(20px,4vw,64px) 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font-size:14px;color:#4A4F45">
+<span>© 2026 Sillage · [NOM DE VOTRE STRUCTURE]</span>
+<span style="display:flex;flex-wrap:wrap;gap:8px 24px">
+<a href="#haut" style="color:#4A4F45;min-height:44px;display:flex;align-items:center">Mentions légales</a>
+<a href="#haut" style="color:#4A4F45;min-height:44px;display:flex;align-items:center">Conditions d'utilisation</a>
+<a href="#haut" style="color:#4A4F45;min-height:44px;display:flex;align-items:center">[VOTRE E-MAIL DE CONTACT]</a>
+</span>
+</footer>
+
+</div>
+</body>
+</html>
